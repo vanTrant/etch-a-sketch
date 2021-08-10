@@ -37,7 +37,7 @@ header {
 .controls {
     background: rgb(209, 209, 209);
     width: 320px;
-    height: 320px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -86,4 +86,12 @@ button {
 
 button.active {
     background: lightblue;
+}
+
+button.inactive,
+input.inactive {
+    cursor: not-allowed;
+    background: #ffffff;
+    pointer-events: none;
+    color: #dddddd;
 }

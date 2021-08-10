@@ -1,6 +1,10 @@
 const divsContainer = document.querySelector(".divs-container");
+const btnColor = document.getElementById("btn-color");
+const btnRainbow = document.getElementById("btn-rainbow");
 const btnClear = document.getElementById("btn-clear");
 const btnEraser = document.getElementById("btn-eraser");
+const inputPen = document.getElementById("pen-color");
+const inputBg = document.getElementById("bg-color");
 const inputSquare = document.getElementById("input-square");
 const totalSquare = document.querySelector(".total-square");
 const eye = document.querySelectorAll(".eye");
@@ -14,10 +18,25 @@ inputSquare.addEventListener("mousemove", () => {
 inputSquare.addEventListener("mouseup", clearSketch);
 window.addEventListener("load", updateHandler);
 btnEraser.addEventListener("click", toggleEraser);
+inputBg.addEventListener("change", changeBgColor);
+btnRainbow.addEventListener("click", toggleRainbow);
 
 eye.forEach((e) => {
     e.addEventListener("click", isVisible);
 });
+
+function randomizer(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function changeBgColor() {
+    let div = document.querySelectorAll(".game");
+    for (let i = 0; i < div.length; i++) {
+        if (div[i].className === "game active" || div[i].className === "game") {
+            div[i].style.background = `${inputBg.value}`;
+        }
+    }
+}
 
 function isVisible() {
     let div = document.querySelectorAll(".game");
@@ -68,11 +87,17 @@ function removeDivs() {
 }
 
 function addTrail() {
-    this.style.background = "black";
+    if (btnRainbow.className === "active" && btnColor.className === "inactive") {
+        this.style.background = `rgb(${randomizer(255)},${randomizer(255)},${randomizer(255)})`;
+    } else {
+        this.style.background = `${inputPen.value}`;
+        this.classList.add("trail");
+    }
 }
 
 function removeTrail() {
-    this.style.background = "white";
+    this.style.background = `${inputBg.value}`;
+    this.classList.remove("trail");
 }
 
 function clearSketch() {
@@ -91,4 +116,11 @@ function toggleEraser() {
             e.addEventListener("mouseover", removeTrail);
         } else e.addEventListener("mouseover", addTrail);
     });
+}
+
+function toggleRainbow() {
+    this.classList.toggle("active");
+    btnColor.classList.toggle("active");
+    btnColor.classList.toggle("inactive");
+    inputPen.classList.toggle("inactive");
 }
