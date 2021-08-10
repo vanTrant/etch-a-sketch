@@ -1,4 +1,5 @@
 const divsContainer = document.querySelector(".divs-container");
+const btnClear = document.getElementById("btn-clear");
 let divColumn = [];
 let divRow = [];
 
@@ -23,5 +24,15 @@ function createDivs(row, column) {
 
 function addTrail() {
     this.style.background = "black";
-    console.log(this);
+}
+
+//Clear Sketch
+btnClear.addEventListener("click", clearSketch);
+
+function clearSketch() {
+    let div = document.querySelectorAll(".game");
+    // console.log(div);
+    div.forEach((e) => {
+        e.style.background = "white";
+    });
 }
