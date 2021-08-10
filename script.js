@@ -1,5 +1,6 @@
 const divsContainer = document.querySelector(".divs-container");
 const btnClear = document.getElementById("btn-clear");
+const btnEraser = document.getElementById("btn-eraser");
 const inputSquare = document.getElementById("input-square");
 const totalSquare = document.querySelector(".total-square");
 const eye = document.querySelectorAll(".eye");
@@ -12,6 +13,7 @@ inputSquare.addEventListener("mousemove", () => {
 });
 inputSquare.addEventListener("mouseup", clearSketch);
 window.addEventListener("load", updateHandler);
+btnEraser.addEventListener("click", toggleEraser);
 
 eye.forEach((e) => {
     e.addEventListener("click", isVisible);
@@ -34,6 +36,11 @@ function updateHandler() {
     createDivs(inputSquare.value);
     divsContainer.style.gridTemplateRows = `repeat(${inputSquare.value}, 1fr)`;
     divsContainer.style.gridTemplateColumns = `repeat(${inputSquare.value}, 1fr)`;
+    eye.forEach((e) => {
+        if (e.textContent === "visibility") {
+            e.textContent = "visibility_off";
+        }
+    });
 }
 
 function createDivs(number) {
@@ -64,9 +71,24 @@ function addTrail() {
     this.style.background = "black";
 }
 
+function removeTrail() {
+    this.style.background = "white";
+}
+
 function clearSketch() {
     let div = document.querySelectorAll(".game");
     div.forEach((e) => {
         e.style.background = "white";
+    });
+}
+
+function toggleEraser() {
+    this.classList.toggle("active");
+    let div = document.querySelectorAll(".game");
+    div.forEach((e) => {
+        if (btnEraser.className === "active") {
+            e.removeEventListener("mouseover", addTrail);
+            e.addEventListener("mouseover", removeTrail);
+        } else e.addEventListener("mouseover", addTrail);
     });
 }

@@ -74,11 +74,16 @@ header {
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-#btn-clear {
-    padding: 0.5rem 1rem;
+button {
+    height: 2.5rem;
+    width: 8rem;
     border-radius: 10px;
     font-size: 1rem;
     background: #ffffff;
     border: 1px solid black;
     cursor: pointer;
+}
+
+button.active {
+    background: lightblue;
 }
