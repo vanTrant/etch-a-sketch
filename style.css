@@ -11,7 +11,8 @@
 
 header {
     height: 20vh;
-    background: #ff4c29;
+    background: #a19882;
+    filter: drop-shadow(0 0 2px black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +22,7 @@ header {
 #main {
     width: 100vw;
     height: 80vh;
-    background: #082032;
+    background: #e6ddc6;
 }
 
 .container {
@@ -33,19 +34,51 @@ header {
     align-items: center;
 }
 
+.controls {
+    background: rgb(209, 209, 209);
+    width: 320px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.eye {
+    margin-left: 5px;
+    font-size: 16px !important;
+    cursor: pointer;
+}
+
+.grid-size span:nth-child(2) {
+    display: none;
+}
+
 .divs-container {
     display: grid;
-    grid-template-rows: repeat(16, 1fr);
-    grid-template-columns: repeat(16, 1fr);
     background: rgb(214, 160, 94);
     height: 320px;
     width: 320px;
+    border: 1px solid black;
 }
 
 .game {
     background: #ffffff;
     cursor: pointer;
-    height: auto;
-    width: auto;
+    height: 1fr;
+    width: 1fr;
     transition: all 200ms ease;
+}
+
+.game.active {
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#btn-clear {
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: #ffffff;
+    border: 1px solid black;
+    cursor: pointer;
 }

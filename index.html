@@ -6,6 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="./style.css" />
         <script src="./script.js" defer></script>
+        <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet" />
         <title>Etch a Sketch</title>
     </head>
     <body>
@@ -15,7 +16,13 @@
         <section id="main">
             <div class="container">
                 <div class="controls">
-                    <button id="btn-clear">Clear Sketch</button>
+                    <div>
+                        <p class="grid-size">Grid size: <span class="total-square"></span><span class="material-icons eye"> visibility </span> <span class="material-icons eye"> visibility_off </span></p>
+                    </div>
+                    <input type="range" name="square" id="input-square" min="1" max="100" value="16" />
+                    <div>
+                        <button id="btn-clear">Clear Sketch</button>
+                    </div>
                 </div>
                 <div class="divs-container"></div>
             </div>
