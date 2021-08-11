@@ -91,8 +91,8 @@ function addTrail() {
         this.style.background = `rgb(${randomizer(255)},${randomizer(255)},${randomizer(255)})`;
     } else {
         this.style.background = `${inputPen.value}`;
-        this.classList.add("trail");
     }
+    this.classList.add("trail");
 }
 
 function removeTrail() {
