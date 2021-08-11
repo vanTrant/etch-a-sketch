@@ -9,18 +9,18 @@ const inputSquare = document.getElementById("input-square");
 const totalSquare = document.querySelector(".total-square");
 const eye = document.querySelectorAll(".eye");
 
-btnClear.addEventListener("click", clearSketch);
 totalSquare.textContent = `${inputSquare.value}x${inputSquare.value}`;
+window.addEventListener("load", updateHandler);
 inputSquare.addEventListener("change", updateHandler);
 inputSquare.addEventListener("mousemove", () => {
     totalSquare.textContent = `${inputSquare.value}x${inputSquare.value}`;
 });
 inputSquare.addEventListener("mouseup", clearSketch);
 inputSquare.addEventListener("change", changeBgColor);
-window.addEventListener("load", updateHandler);
-btnEraser.addEventListener("click", toggleEraser);
 inputBg.addEventListener("change", changeBgColor);
+btnEraser.addEventListener("click", toggleEraser);
 btnRainbow.addEventListener("click", toggleRainbow);
+btnClear.addEventListener("click", clearSketch);
 
 eye.forEach((e) => {
     e.addEventListener("click", isVisible);
@@ -104,7 +104,7 @@ function removeTrail() {
 function clearSketch() {
     let div = document.querySelectorAll(".game");
     div.forEach((e) => {
-        e.style.background = "white";
+        e.style.background = `${inputBg.value}`;
     });
 }
 
