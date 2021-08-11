@@ -16,6 +16,7 @@ inputSquare.addEventListener("mousemove", () => {
     totalSquare.textContent = `${inputSquare.value}x${inputSquare.value}`;
 });
 inputSquare.addEventListener("mouseup", clearSketch);
+inputSquare.addEventListener("change", changeBgColor);
 window.addEventListener("load", updateHandler);
 btnEraser.addEventListener("click", toggleEraser);
 inputBg.addEventListener("change", changeBgColor);
