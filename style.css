@@ -175,3 +175,51 @@ input.inactive {
 .footer-profile span a:hover {
     color: rgb(235, 165, 15);
 }
+
+@media only screen and (max-width: 768px) {
+    :root {
+        font-size: 18px;
+    }
+
+    .game-container {
+        width: 90%;
+    }
+
+    .controls {
+        width: 30vw;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    header {
+        text-align: center;
+        position: fixed;
+        top: 0;
+        z-index: 999;
+    }
+
+    #main {
+        height: 160vh;
+        margin-top: 20vh;
+    }
+
+    .container {
+        height: 150vh;
+    }
+
+    .game-container {
+        height: 100%;
+        flex-direction: column-reverse;
+    }
+
+    .controls {
+        height: 50%;
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .game-container {
+        width: 100%;
+    }
+}
