@@ -105,6 +105,7 @@ function clearSketch() {
     let div = document.querySelectorAll(".game");
     div.forEach((e) => {
         e.style.background = `${inputBg.value}`;
+        e.classList.remove("trail");
     });
 }
 
